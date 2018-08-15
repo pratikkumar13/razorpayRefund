@@ -5,17 +5,8 @@
 		require('razorpay/Razorpay.php'); 
 		session_start();
 		use Razorpay\Api\Api;
-		$api = new Api($keyId, $keySecret);  
-		$id=$_REQUEST['billno'];
-		
-		$payment = $api->payment->fetch($id);
-		print_r($payment); 
+		$api = new Api($keyId, $keySecret);
 	 
-  // Refunds
-
-		$amount=$payment->amount;
+  // Refund
 		$api->payment->fetch($id)->capture(array('amount'=>$amount)); // Creates refund for a payment
-		$api->payment->fetch($id)->refund();  
-
-		$payment = $api->payment->fetch($id);
-		print_r($payment);
+		$api->payment->fetch($id)->refund();
