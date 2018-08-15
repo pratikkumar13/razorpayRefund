@@ -1,9 +1,6 @@
 # razorpayRefund
 
 
-		require('config_rz.php');		 
-		require('razorpay/Razorpay.php'); 
-		session_start();
 		use Razorpay\Api\Api;
 		$api = new Api($keyId, $keySecret);
 	 
